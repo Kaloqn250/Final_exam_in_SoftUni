@@ -1,0 +1,30 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>{{ event.name }}</h2>
+                <img src="{{ event.image.url }}" alt="{{ event.name }}" class="img-fluid mb-4">
+                <p><strong>Date:</strong> {{ event.date }}</p>
+                <p><strong>Location:</strong> {{ event.location }}</p>
+                <p>{{ event.description }}</p>
+                {% if user.is_authenticated %}
+{#                    <a href="{% url 'book_event' event.id %}" class="btn btn-success mt-3">Book This Event</a>#}
+                {% else %}
+                    <p class="text-muted mt-3">Please <a href="{% url 'login' %}">log in</a> to book this event.</p>
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                <h3>Other Events</h3>
+                <ul class="list-group">
+                    {% for other_event in other_events %}
+                        <li class="list-group-item">
+                            <a href="{% url 'details' other_event.id %}">{{ other_event.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

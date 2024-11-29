@@ -1,0 +1,11 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <header class="hero-section text-center">
+    <div class="">
+        <h1>Welcome to Our Event Management Platform</h1>
+        <p>Discover and book your next experience!</p>
+        <a href="{% url 'event_list' %}" class="btn btn-primary mt-3">Browse Events</a>
+    </div>
+    </header>
+{% endblock %}
