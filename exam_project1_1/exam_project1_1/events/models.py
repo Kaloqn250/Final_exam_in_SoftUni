@@ -16,5 +16,7 @@ class Event(models.Model):
 
     categories = models.ManyToManyField(Category, related_name='events')
 
+    image = models.ImageField(upload_to='static/images/events_pictures')
+
     def __str__(self):
         return self.name
