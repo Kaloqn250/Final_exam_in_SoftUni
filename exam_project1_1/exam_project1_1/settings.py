@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "exam_project1_1.common.apps.CommonConfig",
     "exam_project1_1.events.apps.EventsConfig",
-    "exam_project1_1.accounts.apps.ProfilesConfig"
+    "exam_project1_1.accounts.apps.ProfilesConfig",
+    "exam_project1_1.booking.apps.BookingConfig",
+    "exam_project1_1.category.apps.CategoryConfig",
+    "exam_project1_1.feedback.apps.FeedbackConfig"
 ]
 
 MIDDLEWARE = [
@@ -133,5 +136,5 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = reverse_lazy('home')

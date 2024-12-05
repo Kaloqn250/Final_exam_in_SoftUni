@@ -7,7 +7,12 @@
          <div class="form-group">
             {% csrf_token %}
             {{ form }}
+             <p>
+                 If there isn't a category for your event you can register you own category
+                 from <a href="{% url 'create_category' %}" class="btn btn-secondary">here</a>
+             </p>
         </div>
             <button type="submit" class="btn-submit">Register</button>
         </form>
+    </div>
 {% endblock %} 

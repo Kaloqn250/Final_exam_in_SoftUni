@@ -1,21 +1,18 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from exam_project1_1.accounts.models import User
+UserModel = get_user_model()
 
 
-#
-# class ProfileForm(forms.ModelForm):
-#     class Meta:
-#         model = Profile
-#         fields = '__all__'
-#
-#
-# class CreateProfileForm(ProfileForm):
-#     pass
-
-class RegisterForm(UserCreationForm):
+class CustomUserCreationForm(UserCreationForm):
     class Meta:
-        model = get_user_model()
-        fields = ('username', 'email',)
+        model = UserModel
+        fields = ('email',)
+
+
+class AppUserChangeForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        model = UserModel
+
+

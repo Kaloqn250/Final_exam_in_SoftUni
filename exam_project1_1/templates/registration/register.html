@@ -6,7 +6,15 @@
         <form method="post">
          <div class="form-group">
             {% csrf_token %}
-            {{ form }}
+             
+             <label for="form.email">Email:</label>
+            <p>{{ form.email }}</p>
+             
+             <label for="form.password1">Password:</label>
+             <p>{{ form.password1 }}</p>
+             
+             <label for="form.password2">Confirm Password:</label>
+             <p>{{ form.password2 }}</p>
         </div>
             <button type="submit" class="btn-submit">Register</button>
         </form>
