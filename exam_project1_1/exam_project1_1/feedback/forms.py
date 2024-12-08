@@ -9,11 +9,6 @@ class CreateFeedbackForm(forms.ModelForm):
         model = Feedback
         fields = '__all__'
 
-        # widgets = {
-        #     'user': forms.TextInput(attrs={'readonly': 'readonly'}),
-        #     'event': forms.TextInput(attrs={'readonly': 'readonly'}),
-        # }
-
     user = forms.ModelChoiceField(disabled=True, queryset=User.objects.all())
     event = forms.ModelChoiceField(queryset=Event.objects.all(), disabled=True)
 

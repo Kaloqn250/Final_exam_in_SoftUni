@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, DeleteView
 
-from exam_project1_1.events.forms import CreateEventForm
+from exam_project1_1.events.forms import CreateEventForm, DeleteEventForm
 from exam_project1_1.events.models import Event
 from exam_project1_1.feedback.models import Feedback
 
@@ -40,5 +40,13 @@ class EventDetailView(DetailView):
         return context
 
 
+class EventDeleteView(DeleteView):
+    model = Event
+    form_class = DeleteEventForm
+    template_name = 'events/event_delete.html'
+    success_url = reverse_lazy('event_list')
+
+    def get_initial(self) -> dict:
+        return self.get_object().__dict__
 
 

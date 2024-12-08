@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'details' %}">My Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'details' request.user.pk  %}">My Profile</a></li>
 {#                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>#}
                     <li class="nav-item"><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'event_create' %}">Create event</a></li>

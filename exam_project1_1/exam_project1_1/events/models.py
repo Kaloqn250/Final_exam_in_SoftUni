@@ -14,9 +14,12 @@ class Event(models.Model):
 
     capacity = models.IntegerField()
 
-    categories = models.ManyToManyField(Category, related_name='events')
+    image = models.ImageField(upload_to='events_pictures')
 
-    image = models.ImageField(upload_to='static/images/events_pictures')
+    categories = models.ManyToManyField(
+        Category,
+        related_name='events'
+    )
 
     def __str__(self):
         return self.name

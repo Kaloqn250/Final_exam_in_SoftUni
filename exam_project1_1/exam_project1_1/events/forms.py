@@ -25,10 +25,30 @@ class EventForm(forms.ModelForm):
                 }),
             'capacity': forms.TextInput(attrs={
                 'placeholder': 'Event Capacity',
+            }),
+
+            'image': forms.FileInput(attrs={
+                'placeholder': 'Event Image',
+            }),
+
+            'category': forms.Select(attrs={
+                'placeholder': 'Event Category',
             })
         }
 
 
 class CreateEventForm(EventForm):
     pass
+
+
+class DeleteEventForm(EventForm):
+    class Meta:
+        model = Event
+        fields = ['name', 'description', 'location', 'date', 'capacity']
+    name = forms.CharField(disabled=True)
+    description = forms.CharField(disabled=True)
+    location = forms.CharField(disabled=True)
+    date = forms.DateField(disabled=True)
+    capacity = forms.CharField(disabled=True)
+
 
