@@ -1,0 +1,30 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <h1>Booking Details</h1>
+
+        <div class="booking-summary">
+            <h2>Booking Information</h2>
+            <table class="booking-table">
+                <tr>
+                    <th>Booked Event:</th>
+                    <td>{{ booking.event }}</td>
+                </tr>
+                <tr>
+                    <th>Customer Name:</th>
+                    <td>{{ booking.user.profile.get_full_name }}</td>
+                </tr>
+                <tr>
+                    <th>Booking Date:</th>
+                    <td>{{ booking.booked_at }}</td>
+                </tr>
+            </table>
+        </div>
+        
+
+        <div>
+            <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger mt-3">Cancel Booking</a>
+        </div>
+    </div>
+{% endblock %}
