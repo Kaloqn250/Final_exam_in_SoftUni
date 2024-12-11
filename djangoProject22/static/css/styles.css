@@ -1,0 +1,476 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    padding: 235px 120px;
+    background: url('/static/images/home_image/nainoa-shizuru-NcdG9mK3PBY-unsplash4.jpg') no-repeat center center/cover;
+    color: #fff;
+}
+
+.hero-text-section {
+    background-color: #ffffff;
+}
+
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.event-card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.event-card .card-body {
+    text-align: center;
+}
+
+.event-card .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+.img-fluid {
+    border-radius: 8px;
+    max-height: 400px;
+}
+
+.list-group-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Form Styles */
+.login-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px; /* Spacing between label and input */
+    display: block; /* Makes label appear above the input */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*body {*/
+/*    font-family: Arial, sans-serif;*/
+/*    background-color: #f4f4f9;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    flex-direction: column;*/
+/*    height: 100vh;*/
+/*    margin: 0;*/
+/*}*/
+
+
+.feedback-list-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.feedback-item {
+    background-color: #fff;
+    border: 2px solid #ddd; /* Simple border */
+    padding: 15px;
+    border-radius: 6px; /* Rounded corners */
+    position: relative;
+}
+
+/* Add vertical dashed line to simulate fence sections */
+/*.feedback-item:before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 50%;*/
+/*    width: 2px;*/
+/*    height: 100%;*/
+/*    background: #4e5d5b;  !* Dark line resembling a fence between feedback items *!*/
+/*    transform: translateX(-50%);*/
+/*}*/
+/* Hover effect to give a 3D appearance */
+.feedback-item:hover {
+    transform: translateY(-5px); /* Slightly raise the feedback on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+
+.feedback-item p {
+    color: #666;
+    margin: 5px 0;
+}
+
+.feedback-item strong {
+    color: #333;
+}
+
+.show-more-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 10px;
+    background-color: #4CAF50;  /* Green background */
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for button */
+.show-more-btn:hover {
+    background-color: #45a049;  /* Slightly darker green */
+    transform: translateY(-2px);  /* Lift the button slightly */
+}
+
+/* Add an active state for when the button is clicked */
+.show-more-btn:active {
+    background-color: #388e3c; /* Even darker green when clicked */
+    transform: translateY(1px); /* Push the button down slightly */
+}
+
+.star-rating {
+    display: inline-flex;
+    direction: ltr; /* Ensures left-to-right order for stars */
+    font-size: 20px; /* Adjust the size of stars */
+    color: #FFD700; /* Gold color for filled stars */
+}
+
+/* Unfilled star color */
+.star-rating .empty-star {
+    color: #ccc; /* Light gray for empty stars */
+}
+
+
+/* Container for the entire profile section */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Profile card styling */
+.profile-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Header section containing the profile picture and user info */
+.profile-header {
+    margin-bottom: 20px;
+}
+
+/* Profile picture styling */
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4CAF50;
+    margin-bottom: 15px;
+}
+
+/* Username styling */
+.profile-header h1 {
+    font-size: 1.8em;
+    margin: 10px 0 5px;
+    color: #333333;
+}
+
+/* Email styling */
+.email {
+    font-size: 1em;
+    color: #777777;
+    word-wrap: break-word;
+}
+
+/* Actions section (e.g., buttons) */
+.profile-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Base button styling */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Logout button specific styling */
+.logout-btn {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Optional: Edit button styling (if you uncomment it) */
+/*
+.edit-btn {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+*/
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 20px 15px;
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-header h1 {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+/* Style the container for pagination */
+.pagination {
+    text-align: center; /* Center-align pagination */
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Style for each page link */
+.pagination a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #f1f1f1;  /* Light background for the links */
+    color: #007bff;  /* Blue text color for links */
+    text-decoration: none;  /* Remove underline from links */
+    border-radius: 4px;  /* Rounded corners */
+    font-size: 14px;  /* Set a consistent font size */
+    transition: background-color 0.3s ease;  /* Smooth background color transition */
+}
+
+/* Change the color on hover */
+.pagination a:hover {
+    background-color: #007bff;  /* Darker blue when hovering */
+    color: white;  /* White text on hover */
+}
+
+/* Style the current page number */
+.pagination span.current {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #007bff;  /* Blue background for the current page */
+    color: white;  /* White text for current page */
+    border-radius: 4px;
+    font-weight: bold;  /* Bold text for current page */
+}
+
+/* Style the "Previous" and "Next" links */
+.pagination .prev, .pagination .next {
+    font-weight: bold;  /* Make the previous/next links bold */
+}
+
+/* Disable links for "First" and "Last" if they don't exist */
+.pagination a.disabled {
+    background-color: #e0e0e0;  /* Grey background for disabled links */
+    color: #b0b0b0;  /* Grey text */
+    pointer-events: none;  /* Disable the link interaction */
+}
+
+/* Add some space between page links and the "Previous"/"Next" buttons */
+.pagination a, .pagination .current {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.booking-details-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.booking-table th, .booking-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.booking-table th {
+    background-color: #f2f2f2;
+    width: 30%;
+}
+
+.booking-table td {
+    font-size: 14px;
+    color: #555;
+}
+.cancel-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #e53935;
+}

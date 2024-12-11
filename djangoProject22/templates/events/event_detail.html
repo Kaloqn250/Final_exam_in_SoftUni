@@ -1,0 +1,75 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>{{ event.name }}</h2>
+                <img src="{{ event.image.url }}" alt="{{ event.name }}" class="img-fluid mb-4">
+                <p><strong>Date: </strong> {{ event.date }}</p>
+                <p><strong>Location: </strong> {{ event.location }}</p>
+                <p><strong>Description: </strong>{{ event.description }}</p>
+                <p><strong>Capacity: </strong>{{ event.capacity }}</p>
+                <p><strong>Category: </strong>{{ event.categories }}</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'create_feedback' event.id %}" class="btn btn-success mt-3">Give a feedback</a>
+                    <a href="{% url 'book_event' event.id %}" class="btn btn-success mt-3">Book This Event</a>
+                    <a href="{% url 'event_edit' event.id %}" class="btn btn-success mt-3">Edit This Event</a>
+                     <a href="{% url 'event_delete' event.id %}" class="btn btn-danger mt-3">Delete Event</a>
+                {% else %}
+                    <p class="text-muted mt-3">Please <a href="{% url 'login' %}">log in</a> to book this event.</p>
+                {% endif %}
+
+                       
+            
+            </div>
+            <div class="col-md-4">
+                <h3>Other Events</h3>
+                <ul class="list-group">
+                    {% for other_event in other_events %}
+                        <li class="list-group-item">
+                            <a href="{% url 'event_details' other_event.id %}">{{ other_event.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    <p> </p>
+        <div class="feedback-list-container">
+        <h4>Event Feedback List</h4>
+        
+        <p>Here are the feedbacks from our attendees:</p>
+
+        <div class="feedback-list">
+            <div class="feedback-item">
+                {% for feedback in feedbacks %}
+                   <div class="feedback-item">
+                    <h6>{{ feedback.user }}</h6>
+                    <p>{{ feedback.comment }}</p>
+                    <p>{{ feedback.rating }}</p>
+{#                   <p>Rating: {{ feedback.rating|star_rating}}</p>#}
+                       <a href="{% url 'edit_feedback' feedback.id %}" class="btn btn-success mt-3">Edit This Feedback</a>
+                     <a href="{% url 'delete_feedback' feedback.id %}" class="btn btn-danger mt-3">Delete Feedback</a>
+                   </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <!-- Previous Page Link -->
+        {% if items.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ items.previous_page_number }}">Previous</a>
+        {% endif %}
+        
+        <!-- Page Numbers -->
+        <span>Page {{ items.number }} of {{ items.paginator.num_pages }}</span>
+        
+        <!-- Next Page Link -->
+        {% if items.has_next %}
+            <a href="?page={{ items.next_page_number }}">Next</a>
+            <a href="?page={{ items.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </div>
+{% endblock %}
