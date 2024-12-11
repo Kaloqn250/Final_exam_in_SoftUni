@@ -7,10 +7,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin:index' %}">Admin Panel</a>
+                            </li>
+                        {% endif %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'details' request.user.pk  %}">My Profile</a></li>
-{#                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>#}
                     <li class="nav-item"><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'event_create' %}">Create event</a></li>
+                    {% if user.is_superuser or user.is_staff %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'event_create' %}">Create event</a></li>
+                    {% endif %}    
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                 {% endif %}

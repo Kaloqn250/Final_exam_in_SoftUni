@@ -7,18 +7,25 @@
             <div class="col-md-8">
                 <h2>{{ event.name }}</h2>
                 <img src="{{ event.image.url }}" alt="{{ event.name }}" class="img-fluid mb-4">
-                <p><strong>Date:</strong> {{ event.date }}</p>
-                <p><strong>Location:</strong> {{ event.location }}</p>
-                <p><strong>Description</strong>{{ event.description }}</p>
+                <p><strong>Date: </strong> {{ event.date }}</p>
+                <p><strong>Location: </strong> {{ event.location }}</p>
+                <p><strong>Description: </strong>{{ event.description }}</p>
+                <p><strong>Capacity: </strong>{{ event.capacity }}</p>
+                <p><strong>Category: </strong>{{ event.categories.name }}</p>
                 {% if user.is_authenticated %}
                     <a href="{% url 'create_feedback' event.id %}" class="btn btn-success mt-3">Give a feedback</a>
                     <a href="{% url 'book_event' event.id %}" class="btn btn-success mt-3">Book This Event</a>
+                    {% if user.is_staff or user.is_superuser %}
+                        <a href="{% url 'event_edit' event.id %}" class="btn btn-success mt-3">Edit This Event</a>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                        <a href="{% url 'event_delete' event.id %}" class="btn btn-danger mt-3">Delete Event</a>
+                    {% endif %}
+
                 {% else %}
                     <p class="text-muted mt-3">Please <a href="{% url 'login' %}">log in</a> to book this event.</p>
                 {% endif %}
 
-                        <a href="{% url 'event_delete' event.id %}" class="btn btn-danger mt-3">Delete Event</a>
-            
             </div>
             <div class="col-md-4">
                 <h3>Other Events</h3>
@@ -34,7 +41,7 @@
     <p> </p>
         <div class="feedback-list-container">
         <h4>Event Feedback List</h4>
-        
+
         <p>Here are the feedbacks from our attendees:</p>
 
         <div class="feedback-list">
@@ -44,8 +51,11 @@
                     <h6>{{ feedback.user }}</h6>
                     <p>{{ feedback.comment }}</p>
                     <p>{{ feedback.rating }}</p>
-{#                   <p>Rating: {{ feedback.rating|star_rating}}</p>#}
-                    <a class="show-more-btn" href="{% url 'feedback_details' feedback.pk %}">Show More Info</a>
+                     {% if user.is_authenticated %}
+                       {% if user.is_superuser or user.is_staff or feedback.user.id == request.user.id %}
+                       <a href="{% url 'delete_feedback' feedback.id %}" class="btn btn-danger mt-3">Delete Feedback</a>
+                        {% endif %}
+                     {% endif %}
                    </div>
                 {% endfor %}
             </div>

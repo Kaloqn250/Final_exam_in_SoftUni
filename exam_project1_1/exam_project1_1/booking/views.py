@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -8,6 +9,8 @@ from exam_project1_1.events.models import Event
 
 
 # Create your views here.
+
+UserModel = get_user_model()
 
 
 class BookEventView(CreateView):
@@ -34,6 +37,10 @@ class BookEventView(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        booking = form.save(commit=False)
+        booking.event = self.kwargs['pk']
+        booking.user = self.request.user
+
         return super().form_valid(form)
 
     def get_success_url(self):

@@ -21,6 +21,8 @@ class Feedback(models.Model):
 
     comment = models.TextField()
 
+    something = models.TextField()
+
     rating = models.PositiveSmallIntegerField(
         choices=[(i, i) for i in range(1, 6)]
 

@@ -6,7 +6,7 @@ from exam_project1_1.events.models import Event
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = '__all__'
+        exclude = ['user']
         widgets = {
             'name': forms.TextInput(attrs={
                 'placeholder': 'Event Name',
@@ -31,7 +31,7 @@ class EventForm(forms.ModelForm):
                 'placeholder': 'Event Image',
             }),
 
-            'category': forms.Select(attrs={
+            'categories': forms.Select(attrs={
                 'placeholder': 'Event Category',
             })
         }
@@ -41,14 +41,19 @@ class CreateEventForm(EventForm):
     pass
 
 
+class EditEventForm(EventForm):
+    pass
+
+
 class DeleteEventForm(EventForm):
     class Meta:
         model = Event
         fields = ['name', 'description', 'location', 'date', 'capacity']
-    name = forms.CharField(disabled=True)
-    description = forms.CharField(disabled=True)
-    location = forms.CharField(disabled=True)
-    date = forms.DateField(disabled=True)
-    capacity = forms.CharField(disabled=True)
+
+    name = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    description = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    location = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    date = forms.DateField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    capacity = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
 
 

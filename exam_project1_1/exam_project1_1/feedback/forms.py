@@ -4,11 +4,19 @@ from exam_project1_1.events.models import Event
 from exam_project1_1.feedback.models import Feedback, User
 
 
-class CreateFeedbackForm(forms.ModelForm):
+class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = '__all__'
 
-    user = forms.ModelChoiceField(disabled=True, queryset=User.objects.all())
-    event = forms.ModelChoiceField(queryset=Event.objects.all(), disabled=True)
 
+class CreateFeedbackForm(FeedbackForm):
+    user = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    event = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+
+
+class DeleteFeedbackForm(FeedbackForm):
+    user = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    event = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    comment = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    rating = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))

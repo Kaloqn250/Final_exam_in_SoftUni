@@ -10,5 +10,6 @@ class BookingForm(forms.ModelForm):
 
 
 class BookEventForm(BookingForm):
-    pass
+    user = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    event = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
 

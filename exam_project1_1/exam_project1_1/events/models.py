@@ -16,9 +16,10 @@ class Event(models.Model):
 
     image = models.ImageField(upload_to='events_pictures')
 
-    categories = models.ManyToManyField(
+    categories = models.ForeignKey(
         Category,
-        related_name='events'
+        related_name='events',
+        on_delete=models.CASCADE
     )
 
     def __str__(self):

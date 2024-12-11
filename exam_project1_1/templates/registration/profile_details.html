@@ -1,22 +1,37 @@
 {% extends 'common/base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="profile-container">
         <div class="profile-card">
             <div class="profile-header">
-                {% if photo.user.profile.profile_picture %}
+                {% if user.profile.profile_picture %}
                 <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                {% else %}
+                    <img src="{% static 'images/profile_picture/download.png' %}" alt="Profile Picture" class="profile-picture">
                 {% endif %}
-                <h1>{{ user.username }}</h1>
+                {% if 'None' in user.profile.get_full_name %}
+                    <h1>Please finish you profile</h1>
+                {% else %}
+                    <h1>{{ user.profile.get_full_name }}</h1>
+                {% endif %}
                 <p class="email">{{ user.email }}</p>
             </div>
-{#            <div class="profile-details">#}
-{#                <h2>About Me</h2>#}
-{#                <p>{{ user.profile.bio }}</p>#}
+
+            <div class="">
+                <h4>My booked events</h4>
+                <ul class="list-group">
+                    {% for booking in bookings %}
+                        <li class="list-group-item">
+                            <a href="{% url 'event_details' booking.event.id %}">{{ booking.event.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
+
             <div class="profile-actions">
                 <a href="{% url 'edit_profile' user.pk %}" class="btn edit-btn">Edit Profile</a>
-                <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+{#                <a href="{% url 'logout' %}" class="logout-btn">Logout</a>#}
             </div>
         </div>
 {% endblock %}
